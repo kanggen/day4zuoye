@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/icon">
+    <link rel="stylesheet" href="/swiper.min.css">
 </head>
 <script src="/flexible.js"></script>
 
@@ -16,12 +18,89 @@
 <body>
     <div class="wrapper">
         <header>
-            <div>
+            <div class="add">
+                北京<i>v</i>
+            </div>
+            <div class="inp"><i></i><input type="text" placeholder="请输入商家/品类/商品"></div>
+            <dl class="user">
+                <dt><i class="icon iconfont icon-wode1"></i></dt>
+                <dd>我的</dd>
+            </dl>
+        </header>
+        <section>
+            <div class="bannerImg">
+                <img src="/banner.png" alt="">
+            </div>
+            <div class="swiper-container nav">
+
+                <!-- <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+
+                    </div>
+                    <div class="swiper-slide">
+
+                    </div>
+                </div> -->
 
             </div>
-        </header>
-        <section></section>
+            <div class="xihuan">
+                <h3>猜你喜欢</h3>
+            </div>
+        </section>
     </div>
 </body>
+<script>
+    $.ajax({
+        type: "get",
+        url: "/data",
+        dataType: "json",
+        success: function(res) {
+            randerNav(res.data.nav)
+            randerList(res.data.list)
+        }
+    });
+
+    function randerNav(data) {
+        var str = `<div class="swiper-wrapper">`
+
+        for (var i = 0; i < 2; i++) {
+            str += `<div class="swiper-slide">`
+            $.each(data, function(i, v) {
+                str += `<dl>
+                            <dt><i class="${v.icon}"></i></dt>
+                            <dd>${v.tit}</dd>
+                        </dl>`
+            })
+            str += `</div>`
+        }
+        str += `</div>
+        <div class="swiper-pagination page"></div>
+        `;
+        $('.nav').html(str)
+    }
+
+    function randerList(data) {
+        var str = ''
+        $.each(data, function(i, v) {
+            str += `<dl>
+                        <dt><img src="${v.img}"></dt>
+                        <dd>
+                            <p>${v.tit}</p>
+                            <p>${v.particulars}</p>
+                            <p><span>${v.price}元</span><i>门市价:${v.lodprice}</i> <b>已售${v.sellnum}</b></p>
+                        </dd>
+                    </dl>
+            `
+        })
+        $('.xihuan').append(str)
+    }
+    var swiper = new Swiper('.nav', {
+        loop: true,
+        pagination: {
+            el: ".page"
+        }
+    })
+    console.log(new Swiper)
+</script>
 
 </html>

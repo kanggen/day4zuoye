@@ -23,6 +23,41 @@ header {
     height: pxTorem(50px);
     flex-shrink: 0;
     display: flex;
+    background: #00C4B3;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 pxTorem(15px);
+    color: #fff;
+    .inp {
+        flex-grow: 1;
+        background: #00A798;
+        margin: 0 pxTorem(20px);
+        height: pxTorem(30px);
+        border-radius: pxTorem(3px);
+        display: flex;
+        align-items: center;
+        color: #fff;
+        padding: pxTorem(15px);
+        input {
+            color: #fff;
+        }
+    }
+    .add {
+        flex-shrink: 0;
+        i {
+            margin-left: pxTorem(5px);
+        }
+    }
+    .user {
+        flex-shrink: 0;
+        text-align: center;
+        i.iconfont {
+            font-size: pxTorem(20px)
+        }
+        dd {
+            font-size: pxTorem(10px);
+        }
+    }
 }
 
 section {
@@ -30,5 +65,62 @@ section {
     width: 100%;
     div {
         width: 100%;
+    }
+    .nav {
+        .swiper-slide {
+            display: flex;
+            flex-wrap: wrap;
+            dl {
+                margin-top: pxTorem(10px);
+                width: 20%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                dt {
+                    background: #ddd;
+                    width: pxTorem(40px);
+                    height: pxTorem(40px);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    color: #fff;
+                    i.iconfont {
+                        font-size: pxTorem(20px);
+                    }
+                }
+                dd {
+                    margin-top: pxTorem(5px);
+                }
+            }
+        }
+    }
+    .xihuan {
+        margin-top: pxTorem(10px);
+        padding: 0 pxTorem(18px);
+        h3 {
+            width: 100%;
+            line-height: pxTorem(30px);
+            border-bottom: solid 1px #ddd;
+            font-size: pxTorem(15px);
+        }
+        dl {
+            display: flex;
+            height: pxTorem(102px);
+            align-items: center;
+            border-bottom: solid 1px #ddd;
+            dt {
+                width: pxTorem(90px);
+                height: pxTorem(90px);
+                img {
+                    width: 100%;
+                }
+            }
+            dd {
+                height: pxTorem(90px);
+                padding-left: pxTorem(10px);
+            }
+        }
     }
 }
